@@ -3,35 +3,37 @@ import java.util.Scanner;
 
 public class principal{
     public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in);
-        Double numero_um;
-        Double numero_dois;
-        String operador;
-        Double resultado;
+      Scanner teclado = new Scanner(System.in);
+      System.out.println("Digite o primeiro valor: ");
+      Double numero_um = teclado.nextDouble();
+      System.out.println("Digite o segundo valor:");
+      Double numero_dois = teclado.nextDouble();
+      System.out.println("Escolha o operador (+,-,/,x):");
+      String operador = teclado.next();
+      teclado.close();
+      Double resultado = null;
 
-        System.out.println("Digite o primerio valor:");
-        numero_um = teclado.nextDouble();
+      switch(operador){
+         case "+":
+            resultado = numero_um + numero_dois;
+            break;
 
-        System.out.println("Digite o segundo valor:");
-        numero_dois = teclado.nextDouble();
-
-        System.out.println("Qual o operador");
-        operador = teclado.next();
-
-        switch(operador){
-            case "+":
-               resultado = numero_um + numero_dois;
-               break;
             case "-":
-               resultado = numero_um - numero_dois;
-               break;            
-            case "x":
-               resultado = numero_um * numero_dois;
-               break;
+            resultado = numero_um - numero_dois;
+            break;
 
             case "/":
-               resultado = numero_um / numero_dois;
-               break;
-        }
+            resultado = numero_um / numero_dois;
+            break;
+
+            case "x":
+            resultado = numero_um * numero_dois;
+            break;      
+         default:
+            System.out.println("Algo de errado");        
+            break;
+
+      }
+      System.out.println(numero_um + " " + operador + " " + numero_dois + " = "+resultado);
     }
  }
